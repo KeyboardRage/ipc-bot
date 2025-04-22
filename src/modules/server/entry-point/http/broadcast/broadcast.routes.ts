@@ -1,7 +1,7 @@
-import type { HTTPServer, Route } from "../../../types";
-import type * as POSTBroadcastMessage from "./_spec/POSTBroadcastMessage";
-import { PostBroadcastOptions } from "./broadcast.helpers.ts";
-import * as handlers from "../../../domain/handlers.http";
+import type { HTTPServer, Route } from "../../../types.js";
+import type * as POSTBroadcastMessage from "./_spec/POSTBroadcastMessage.js";
+import { PostBroadcastOptions } from "./broadcast.helpers.js";
+import * as handlers from "../../../domain/handlers.http.js";
 
 // /v1/broadcast
 const MakeRoutes: Route<HTTPServer> = (server, opts, done) => {

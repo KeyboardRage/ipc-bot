@@ -1,5 +1,5 @@
-import type { ApplicationCore } from "../../../../types";
-import BotClient from "../../../client/domain/BotClient";
+import type { ApplicationCore } from "../../../../types.js";
+import BotClient from "../../../client/domain/BotClient.js";
 
 export default function(bot: BotClient, core: ApplicationCore) {
     // Bot joined guild

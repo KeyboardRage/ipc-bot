@@ -1,4 +1,4 @@
-import type { ApplicationCore } from "../../../../../index";
+import type { ApplicationCore } from "../../../../../types.js";
 import { type ChatInputCommandInteraction, MessageFlags } from "discord.js";
 
 export default async function(interaction: ChatInputCommandInteraction, core: ApplicationCore) {

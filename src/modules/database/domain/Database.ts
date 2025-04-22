@@ -1,6 +1,6 @@
 import type { ClientSession, ConnectOptions, Model } from "mongoose";
 import mongoose from "mongoose";
-import type DocSchema from "./DocSchema";
+import type DocSchema from "./DocSchema.js";
 
 type Connection = mongoose.Connection;
 const { Types } = mongoose;

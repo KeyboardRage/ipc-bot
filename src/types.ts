@@ -1,12 +1,12 @@
-import type { Database } from "./modules/database";
-import type { AuthService } from "./modules/auth";
-import type { AppCore } from "./modules/core";
-import type { BotClient } from "./modules/client";
-import type { InteractionService } from "./modules/interactions";
-import type { RestClient } from "./modules/rest";
-import type { Server } from "./modules/server";
-import type { GuildService } from "./modules/system";
-import type { DiscordService } from "./modules/rest";
+import type { Database } from "./modules/database/index.js";
+import type { AuthService } from "./modules/auth/index.js";
+import type { AppCore } from "./modules/core/index.js";
+import type { BotClient } from "./modules/client/index.js";
+import type { InteractionService } from "./modules/interactions/index.js";
+import type { RestClient } from "./modules/rest/index.js";
+import type { Server } from "./modules/server/index.js";
+import type { GuildService } from "./modules/system/index.js";
+import type { DiscordService } from "./modules/rest/index.js";
 
 declare global {
     namespace NodeJS {

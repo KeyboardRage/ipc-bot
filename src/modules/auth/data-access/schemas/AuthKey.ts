@@ -1,4 +1,4 @@
-import type { IAuthData } from "../../types";
+import type { IAuthData } from "../../types.js";
 import { Schema } from "mongoose";
 
 const schema = new Schema<IAuthData>({

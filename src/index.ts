@@ -1,6 +1,6 @@
-import type { AnyOriginalError } from "./types";
-export * from "./types";
-import start from "./main";
+import type { AnyOriginalError } from "./types.js";
+export * from "./types.js";
+import start from "./main.js";
 
 // TODO Set up shorthand aliases for /modules folder in package.json
 

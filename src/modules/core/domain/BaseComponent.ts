@@ -1,5 +1,5 @@
 import { EventEmitter } from "eventemitter3";
-import type { ValidEvents } from "../types";
+import type { ValidEvents } from "../types.js";
 
 /**
  * This is the base of every library package, component, and the core.

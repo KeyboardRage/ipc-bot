@@ -1,6 +1,6 @@
-import type { ServiceMap } from "../../types";
-import { Plugin } from "../core";
-import ErrorService from "./domain/ErrorService";
+import type { ServiceMap } from "../../types.js";
+import { Plugin } from "../core/index.js";
+import ErrorService from "./domain/ErrorService.js";
 
 export {
     ErrorService,

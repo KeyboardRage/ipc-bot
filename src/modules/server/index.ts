@@ -1,8 +1,8 @@
-import type { ServiceMap } from "../../types";
-import Server from "./domain/Server";
-import Plugin from "../core/domain/Plugin";
-import JWTAuthHandler from "../auth/domain/JWTAuthHandler";
-import RoutesFactory from "./entry-point/http/index";
+import type { ServiceMap } from "../../types.js";
+import Server from "./domain/Server.js";
+import Plugin from "../core/domain/Plugin.js";
+import JWTAuthHandler from "../auth/domain/JWTAuthHandler.js";
+import RoutesFactory from "./entry-point/http/index.js";
 
 export {
     Server,

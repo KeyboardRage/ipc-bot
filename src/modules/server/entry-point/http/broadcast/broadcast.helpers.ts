@@ -1,5 +1,5 @@
-import { RouteOpts } from "../../../types";
-import * as POSTBroadcastMessage from "./_spec/POSTBroadcastMessage";
+import { RouteOpts } from "../../../types.js";
+import * as POSTBroadcastMessage from "./_spec/POSTBroadcastMessage.js";
 
 export const PostBroadcastOptions: RouteOpts = {
     config: { jwtAuth: true },

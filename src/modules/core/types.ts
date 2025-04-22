@@ -1,6 +1,6 @@
 import type { EventEmitter } from "eventemitter3";
-import Plugin from "./domain/Plugin";
-import Core from "./domain/AppCore";
+import Plugin from "./domain/Plugin.js";
+import Core from "./domain/AppCore.js";
 export type ValidEvents = EventEmitter.ValidEventTypes;
 
 export interface CoreEvents<CoreServiceMap> {

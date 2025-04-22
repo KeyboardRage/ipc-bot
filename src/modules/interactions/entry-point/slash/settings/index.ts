@@ -1,5 +1,5 @@
-import command from "./command";
-import handler from "./handler";
+import command from "./command.js";
+import handler from "./handler.js";
 
 export default {
     command,

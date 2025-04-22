@@ -1,9 +1,9 @@
-import type { ServiceMap } from "../../types";
-import Plugin from "../core/domain/Plugin";
-import Database from "./domain/Database";
-import DocSchema from "./domain/DocSchema";
+import type { ServiceMap } from "../../types.js";
+import Plugin from "../core/domain/Plugin.js";
+import Database from "./domain/Database.js";
+import DocSchema from "./domain/DocSchema.js";
 
-export * from "./types";
+export * from "./types.js";
 export {
     Database,
     DocSchema,

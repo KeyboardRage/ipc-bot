@@ -1,15 +1,15 @@
-import type {ApplicationCore, ServiceMap} from "./types";
-import { AppCore } from "./modules/core";
+import type {ApplicationCore, ServiceMap} from "./types.js";
+import { AppCore } from "./modules/core/index.js";
 
-import Errors from "./modules/errors";
-import Database from "./modules/database";
-import Auth from "./modules/auth";
-import BotClient from "./modules/client";
-import RestClient from "./modules/rest";
-import Server from "./modules/server";
-import System from "./modules/system";
-import Interactions from "./modules/interactions";
-import DevelopmentUtils from "./modules/development";
+import Errors from "./modules/errors/index.js";
+import Database from "./modules/database/index.js";
+import Auth from "./modules/auth/index.js";
+import BotClient from "./modules/client/index.js";
+import RestClient from "./modules/rest/index.js";
+import Server from "./modules/server/index.js";
+import System from "./modules/system/index.js";
+import Interactions from "./modules/interactions/index.js";
+import DevelopmentUtils from "./modules/development/index.js";
 
 export default async function(): Promise<ApplicationCore> {
     const core = new AppCore<ServiceMap>("IPCBot", {

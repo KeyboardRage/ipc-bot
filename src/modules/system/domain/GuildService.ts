@@ -1,8 +1,8 @@
-import type { IAllGuildIdsOptions, IGuild } from "../types";
+import type { IAllGuildIdsOptions, IGuild } from "../types.js";
 import type { APIGuild } from "discord-api-types/v10";
-import type { ApplicationCore } from "../../../types";
+import type { ApplicationCore } from "../../../types.js";
 import type { Guild } from "discord.js";
-import type { FilterQuery } from "../../database";
+import type { FilterQuery } from "../../database/index.js";
 
 export interface IGuildServiceDependencies {
     core: ApplicationCore

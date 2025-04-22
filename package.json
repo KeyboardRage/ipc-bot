@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch --env-file=.env.local src/index.ts",
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
-    "clean": "rimraf dist"
+    "build": "npm run clean && tsc --declarationMap false --sourceMap false --declaration false && npx esbuild dist/index.js --bundle --outfile=bin/index.mjs --platform=node --target=esnext --format=esm --banner:js=\"import {createRequire} from 'module';const require=createRequire(import.meta.url);\"",
+    "start": "node bin/index.js",
+    "clean": "rimraf dist && rimraf bin"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=23.0.0"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.14.1",
+    "esbuild": "^0.25.2",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",

@@ -1,4 +1,4 @@
-import type { ApplicationCore } from "../../../types";
+import type { ApplicationCore } from "../../../types.js";
 import { Routes } from "discord-api-types/v10";
 import { Events } from "discord.js";
 

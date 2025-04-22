@@ -1,4 +1,4 @@
-import type { IGuild } from "../../types";
+import type { IGuild } from "../../types.js";
 import { Schema } from "mongoose";
 
 const schema = new Schema<IGuild>({

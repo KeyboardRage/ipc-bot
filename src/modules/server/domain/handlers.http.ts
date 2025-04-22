@@ -1,6 +1,6 @@
-import type { GuildService } from "../../system";
+import type { GuildService } from "../../system/index.js";
 import type { IUserData } from "../../../types.ts";
-import type { DiscordService } from "../../rest";
+import type { DiscordService } from "../../rest/index.js";
 
 interface IPostBroadcastMessageData {
     content: string;

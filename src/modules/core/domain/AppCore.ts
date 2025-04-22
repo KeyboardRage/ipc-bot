@@ -1,6 +1,6 @@
-import type { CoreEvents, CoreLoggingConfig, CoreConfig } from "../types";
-import BaseComponent from "./BaseComponent";
-import Plugin from "./Plugin";
+import type { CoreEvents, CoreLoggingConfig, CoreConfig } from "../types.js";
+import BaseComponent from "./BaseComponent.js";
+import Plugin from "./Plugin.js";
 
 export default class Core<CoreServiceMap> extends BaseComponent<CoreEvents<CoreServiceMap>> {
     /**

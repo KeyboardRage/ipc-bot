@@ -1,7 +1,7 @@
-import type { ServiceMap } from "../../types";
-import RestClient from "./domain/RestClient";
-import Plugin from "../core/domain/Plugin";
-import DiscordService from "./domain/DiscordService.ts";
+import type { ServiceMap } from "../../types.js";
+import RestClient from "./domain/RestClient.js";
+import Plugin from "../core/domain/Plugin.js";
+import DiscordService from "./domain/DiscordService.js";
 
 export {
     RestClient,

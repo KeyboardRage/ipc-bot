@@ -1,7 +1,7 @@
-export * from "./types";
-import Plugin from "./domain/Plugin";
-import AppCore from "./domain/AppCore";
-import BaseComponent from "./domain/BaseComponent";
+export * from "./types.js";
+import Plugin from "./domain/Plugin.js";
+import AppCore from "./domain/AppCore.js";
+import BaseComponent from "./domain/BaseComponent.js";
 
 export {
     Plugin,

@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     /* Output -------------------------------------------------- */
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "sourceMap": true,
 
     /* Language & module -------------------------------------- */
-    "target": "ES2022",          // matches Node 22 feature set
-    "module": "ESNext",        // keeps native ESM semantics
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "target": "ESNext",          // matches Node 22 feature set
+    "module": "NodeNext",        // keeps native ESM semantics
+    "moduleResolution": "nodenext",
 
     /* Strictness & ergonomics -------------------------------- */
     "strict": true,
@@ -18,5 +16,5 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts"]
 }

@@ -5,7 +5,7 @@ import type {
     RouteGenericInterface,
     RouteShorthandOptions
 } from "fastify";
-import type { ApplicationCore, IUserData } from "../../types";
+import type { ApplicationCore, IUserData } from "../../types.js";
 import type { JwtPayload } from "jsonwebtoken";
 
 export type RouteFunction<Server> = (http: Server, opts: unknown, done: () => void) => void;

@@ -1,4 +1,4 @@
-import type { AuthHandler, HTTPReply, HTTPRequest, HTTPServer, RouteFunction } from "../types";
+import type { AuthHandler, HTTPReply, HTTPRequest, HTTPServer, RouteFunction } from "../types.js";
 import type { ApplicationCore } from "../../../types.ts";
 import fastify, { type FastifyInstance } from "fastify";
 import { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";

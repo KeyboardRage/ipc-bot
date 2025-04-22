@@ -1,8 +1,8 @@
-import type { IAuthData } from "./types";
-import AuthService from "./domain/AuthService";
-import AuthKey from "./data-access/schemas/AuthKey";
-import type { ServiceMap } from "../../index";
-import Plugin from "../core/domain/Plugin";
+import type { IAuthData } from "./types.js";
+import AuthService from "./domain/AuthService.js";
+import AuthKey from "./data-access/schemas/AuthKey.js";
+import type { ServiceMap } from "../../types.js";
+import Plugin from "../core/domain/Plugin.js";
 
 export {
     AuthService,

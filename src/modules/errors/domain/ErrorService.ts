@@ -1,4 +1,4 @@
-import type { AnyOriginalError } from "../../../types";
+import type { AnyOriginalError } from "../../../types.js";
 
 /**
  * A placeholder logger and error capture.

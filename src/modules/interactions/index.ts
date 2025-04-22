@@ -1,7 +1,7 @@
-import type {ServiceMap} from "../../types";
-import Plugin from "../core/domain/Plugin";
-import InteractionService from './domain/InteractionService';
-import * as InteractionDefinitions from "./entry-point";
+import type {ServiceMap} from "../../types.js";
+import Plugin from "../core/domain/Plugin.js";
+import InteractionService from './domain/InteractionService.js';
+import * as InteractionDefinitions from "./entry-point/index.js";
 
 export {
     InteractionService,

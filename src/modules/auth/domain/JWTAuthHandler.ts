@@ -1,5 +1,5 @@
-import type { AuthHandler } from "../../server/types";
-import type { ApplicationCore } from "../../../types";
+import type { AuthHandler } from "../../server/types.js";
+import type { ApplicationCore } from "../../../types.js";
 
 export default function(core: ApplicationCore) {
     /**

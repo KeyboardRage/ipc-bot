@@ -1,6 +1,6 @@
-import type { IDiscordServiceDependencies } from "../types";
-import type { ApplicationCore } from "../../../types";
-import { BaseComponent } from "../../core";
+import type { IDiscordServiceDependencies } from "../types.js";
+import type { ApplicationCore } from "../../../types.js";
+import { BaseComponent } from "../../core/index.js";
 import {Routes} from "discord-api-types/v10";
 
 export default class DiscordService extends BaseComponent<{}> {

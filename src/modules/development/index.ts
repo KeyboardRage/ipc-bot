@@ -1,5 +1,5 @@
-import type { ServiceMap } from "../../types";
-import { Plugin } from "../core";
+import type { ServiceMap } from "../../types.js";
+import { Plugin } from "../core/index.js";
 
 /**
  * Services and utilities only available in local development mode.

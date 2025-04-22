@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    image: sha256:226df847ee245c40d6765efd0fd79821d9c90ce192b4d94b36bbaa3be4b07855
+    build:
+      context: .
+    environment:
+      - NODE_ENV
+      - BOT_TOKEN
+      - BOT_ID
+      - MONGO_URI
+      - JWT_TOKEN

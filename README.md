@@ -1,5 +1,15 @@
 # IPC-Bot
 
+1. Install dependencies
+```bash
+npm install
+```
+
+2. Run in dev
+```bash
+npm run dev
+```
+
 ## Todo
 - More commands are still needed, like
   - block recipient

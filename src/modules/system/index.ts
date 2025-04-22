@@ -1,10 +1,10 @@
-import type { ServiceMap } from "../../types";
-import Plugin from "../core/domain/Plugin";
-import GuildService from "./domain/GuildService";
-import BotEventHandlers from "./entry-point/events/bot.events";
-import GuildSchema from "./data-access/schemas/GuildSchema";
+import type { ServiceMap } from "../../types.js";
+import Plugin from "../core/domain/Plugin.js";
+import GuildService from "./domain/GuildService.js";
+import BotEventHandlers from "./entry-point/events/bot.events.js";
+import GuildSchema from "./data-access/schemas/GuildSchema.js";
 
-export * from "./types";
+export * from "./types.js";
 export {
     GuildService,
 };

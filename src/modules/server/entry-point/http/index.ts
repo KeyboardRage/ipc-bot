@@ -1,6 +1,6 @@
-import type { HTTPServer, Route } from "../../types";
-import { JWTAuthHandler } from "../../index.ts";
-import Broadcast from "./broadcast/broadcast.routes";
+import type { HTTPServer, Route } from "../../types.js";
+import { JWTAuthHandler } from "../../index.js";
+import Broadcast from "./broadcast/broadcast.routes.js";
 
 // Root
 const MakeRoutes: Route<HTTPServer> = (server, opts, done) => {

@@ -1,7 +1,7 @@
-import type { ServiceMap } from "../../types";
+import type { ServiceMap } from "../../types.js";
 import { GatewayIntentBits } from "discord.js";
-import BotClient from "./domain/BotClient";
-import Plugin from "../core/domain/Plugin";
+import BotClient from "./domain/BotClient.js";
+import Plugin from "../core/domain/Plugin.js";
 
 export {
     BotClient,

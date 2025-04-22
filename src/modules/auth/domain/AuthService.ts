@@ -1,6 +1,6 @@
-import type { IAuthData } from "../types";
-import type { ApplicationCore, IUserData } from "../../../types";
-import type { Model } from "../../database/types";
+import type { IAuthData } from "../types.js";
+import type { ApplicationCore, IUserData } from "../../../types.js";
+import type { Model } from "../../database/types.js";
 import jwt from "jsonwebtoken";
 
 export interface IAuthServiceDependencies {

@@ -1,1 +1,1 @@
-export * as Slash from "./slash";
+export * as Slash from "./slash/index.js";

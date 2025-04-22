@@ -1,4 +1,4 @@
-import type { IUserData } from "../../../../types";
+import type { IUserData } from "../../../../types.js";
 import { Schema } from "mongoose";
 
 const schema = new Schema<IUserData>({
