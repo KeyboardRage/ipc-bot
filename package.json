@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch --env-file=.env.local src/index.ts",
     "build": "npm run clean && tsc --declarationMap false --sourceMap false --declaration false && npx esbuild dist/index.js --bundle --outfile=bin/index.mjs --platform=node --target=esnext --format=esm --banner:js=\"import {createRequire} from 'module';const require=createRequire(import.meta.url);\"",
-    "start": "node bin/index.js",
+    "start": "node --env-file=.env bin/index.js",
     "clean": "rimraf dist && rimraf bin"
   },
   "engines": {
