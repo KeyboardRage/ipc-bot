@@ -1,0 +1,24 @@
+.env
+.env.*
+.idea/
+.idea_old/
+.DS_Store/
+node_modules/
+_binned/
+hidden/
+samples/
+.dccache
+.turbo
+build/**
+dist/**
+bin/**
+.next/**
+**/node_modules/
+**/dist/
+**/bin/
+
+# Kubernetes secrets that should not be pushed to repo
+**/kubernetes/secrets/
+**/kubernetes/*-secret.yaml
+**/kubernetes/*-secret.yml
+/kubernetes/secrets/
