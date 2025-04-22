@@ -7,10 +7,6 @@ const schema = new Schema<IGuild>({
         type: String,
         required: true,
     },
-    "owner_id": {
-        type: String,
-        required: true,
-    },
     "channelId": {
         type: String,
     },

@@ -28,8 +28,6 @@ export default class GuildService {
         const data: Partial<IGuild> = {
             _id: guild.id,
             name: guild.name,
-            // @ts-expect-error - Former exists on APIGuild, latter on Guild
-            owner_id: guild.owner_id || guild.ownerId,
         };
 
         await this.#Guilds().updateOne(

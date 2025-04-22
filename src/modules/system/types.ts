@@ -1,6 +1,6 @@
 import type { APIGuild } from "discord-api-types/v10";
 
-export interface IGuild extends Pick<APIGuild, "name"|"owner_id"> {
+export interface IGuild extends Pick<APIGuild, "name"> {
     /**
      * Guild ID
      */
