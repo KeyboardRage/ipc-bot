@@ -10,15 +10,7 @@ samples/
 .dccache
 .turbo
 build/**
-dist/**
 bin/**
 .next/**
 **/node_modules/
-**/dist/
 **/bin/
-
-# Kubernetes secrets that should not be pushed to repo
-**/kubernetes/secrets/
-**/kubernetes/*-secret.yaml
-**/kubernetes/*-secret.yml
-/kubernetes/secrets/
