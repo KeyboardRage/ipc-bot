@@ -21,4 +21,5 @@ jobs:
             git pull origin main
             npm ci
             npm run build
-            npm run start
+            cd ..
+            pm2 restart ipc-bot
