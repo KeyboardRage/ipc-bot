@@ -1,6 +1,7 @@
 import type { ServiceMap } from "../../types.js";
 import { JWTAuthHandler } from "../server/index.js";
 import fastifySocketIO from "./domain/FastifyAdapter.js";
+import { OriginSetupFn } from "../server/domain/CorsHandler.js";
 import { Plugin } from "../core/index.js";
 import EventBus from "./domain/EventBus.js";
 import WSServer from "./domain/WSServer.js";
@@ -17,9 +18,9 @@ export default function() {
             const server = core.getService("Server");
             server.getInstance().register(fastifySocketIO, {
                 cors: {
-                    origin: "*",
+                    // @ts-expect-error - It is sufficiently compatible
+                    origin: OriginSetupFn,
                     methods: ["GET", "POST"],
-                    credentials: true,
                 }
             });
 

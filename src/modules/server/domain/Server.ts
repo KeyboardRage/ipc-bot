@@ -2,6 +2,7 @@ import type { AuthHandler, HTTPReply, HTTPRequest, HTTPServer, RouteFunction } f
 import type { ApplicationCore } from "../../../types.ts";
 import fastify, { type FastifyInstance } from "fastify";
 import { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
+import { OriginSetupFn } from "./CorsHandler.js";
 import cors from "@fastify/cors";
 
 
@@ -19,7 +20,8 @@ export default class Server {
         }).withTypeProvider<JsonSchemaToTsProvider>();
 
         this.server.register(cors, {
-            origin: true,
+            origin: OriginSetupFn,
+            methods: ["GET", "POST"],
         });
 
         this.server.addHook('onRequest', (req, reply, done) => {
