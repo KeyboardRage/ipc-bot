@@ -25,10 +25,11 @@ export default function() {
             });
 
             // Register the event bus
-            const eventBus = new EventBus();
+            const eventBus = new EventBus(core.getService("RealTimeDB"));
             core.registerService("EventBus", eventBus);
         },
         postStart(core) {
+            core.getService("EventBus").attachListeners();
 
             // Register the WSServer as its own service for ease of access
             const ws = core.getService("Server").getInstance().io;

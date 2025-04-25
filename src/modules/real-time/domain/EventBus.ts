@@ -1,14 +1,18 @@
 import type { IOSocket } from "../types.js";
+import type { RealTimeDB } from "../../database/index.js";
 import { BaseComponent } from "../../core/index.js";
+import { r } from "rethinkdb-ts";
 
 /**
  * A dedicated handler for distributing events that the API knows about to relevant connected users.
  */
-export default class EventBus extends BaseComponent<{}> {
+export default class LiveManager extends BaseComponent<{}> {
     #clients = new Map<string, IOSocket[]>();
+    #rdb: RealTimeDB;
 
-    constructor() {
+    constructor(db: RealTimeDB) {
         super();
+        this.#rdb = db;
 
         /**
          * A simple cleanup mechanism that removes empty user socket arrays
@@ -19,6 +23,16 @@ export default class EventBus extends BaseComponent<{}> {
                 if (sockets.length === 0) this.#clients.delete(userId);
             }
         }, 60_000); // Cleanup every 1 minute
+    }
+
+    attachListeners() {
+        // Set up subscriptions to database changes
+        r.table("DiscordUsers").changes().run(this.#rdb.db).then(cursor => {
+            cursor.each((err, row) => {
+                if (err) return console.error(err);
+                this.newEventFor(row.new_val.id, "user.update", row.new_val);
+            });
+        });
     }
 
     /**
