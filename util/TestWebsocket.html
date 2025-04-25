@@ -52,7 +52,7 @@
 		<button id="generateJWT">Generate a JWT for me</button>
 	</fieldset>
 
-	<textarea id="payload" placeholder='Write your payload here... e.g. {"event":"test","data":{"msg":"hello"}}'></textarea>
+	<textarea id="payload" placeholder='Write your payload here... e.g. {"hello":"world"}'></textarea>
 	<button id="sendBtn">Send</button>
 </div>
 
@@ -74,6 +74,7 @@
 			return;
 		}
 
+		console.log("CONNECTING", jwt);
 		socket = io('http://127.0.0.1:3000', {
 			auth: { token: jwt }
 		});
@@ -125,7 +126,6 @@
 
 		if (result.ok) {
 			jwtInput.value = await result.text();
-			alert("JWT generated successfully!");
 		} else {
 			alert("Failed to generate JWT: " + await result.text() || result.statusText);
 		}

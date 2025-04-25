@@ -5,7 +5,7 @@ export default function(core: ApplicationCore) {
     /**
      * This function is only executed if the onRequest handler checked that it needs to run this auth.
      */
-    const handler: AuthHandler = async (req, res) => {
+    const handler: AuthHandler = async (req) => {
         if (!req.headers.authorization) {
             throw new Error("Missing authorization header");
         }
