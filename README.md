@@ -37,7 +37,7 @@ Then, start a server that will serve the testing page
 npm run dev:test-socket
 ```
 
-Then, you should be able to go to [http://127.0.0.1:3001](http://127.0.0.1:3001).
+Then, you should be able to go to [http://127.0.0.1:3001/TestWebsocket](http://127.0.0.1:3001/TestWebsocket).
 1. Create a JWT for yourself
 2. Paste the JWT into the input field on the right, then click connect
 3. You can see logs on the left. You can create your own JSON payload to send on the right.
