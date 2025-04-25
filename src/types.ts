@@ -7,6 +7,7 @@ import type { RestClient } from "./modules/rest/index.js";
 import type { Server } from "./modules/server/index.js";
 import type { GuildService } from "./modules/system/index.js";
 import type { DiscordService } from "./modules/rest/index.js";
+import type { WSServer, EventBus } from "./modules/real-time/index.js";
 
 declare global {
     namespace NodeJS {
@@ -34,6 +35,8 @@ export interface ServiceMap extends UnknownServiceMap {
     "REST": RestClient;
     "Server": Server;
     "Discord": DiscordService;
+    "WebSocket": WSServer;
+    "EventBus": EventBus;
 }
 
 export type ApplicationCore = AppCore<ServiceMap>;

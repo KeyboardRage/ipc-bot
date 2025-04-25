@@ -7,6 +7,7 @@ import type {
 } from "fastify";
 import type { ApplicationCore, IUserData } from "../../types.js";
 import type { JwtPayload } from "jsonwebtoken";
+import type { WSServer } from "../real-time/index.js";
 
 export type RouteFunction<Server> = (http: Server, opts: unknown, done: () => void) => void;
 
@@ -23,6 +24,7 @@ declare module "fastify" {
 
     interface FastifyInstance {
         core: ApplicationCore;
+        io: WSServer;
     }
 
     export interface FastifyReply {

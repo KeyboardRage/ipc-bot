@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Test Websocket connection</title>
+	<style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #messages {
+            height: 400px;
+            overflow-y: auto;
+            background: #f3f3f3;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+        }
+	</style>
+</head>
+<body>
+
+<div class="column">
+	<h3>Received Messages</h3>
+	<div id="messages"></div>
+</div>
+
+<div class="column">
+	<h3>Send Event</h3>
+	<fieldset>
+		<input type="text" id="jwt" placeholder="Enter JWT here"/>
+		<button id="connectBtn">Connect</button>
+		<button id="generateJWT">Generate a JWT for me</button>
+	</fieldset>
+
+	<textarea id="payload" placeholder='Write your payload here... e.g. {"event":"test","data":{"msg":"hello"}}'></textarea>
+	<button id="sendBtn">Send</button>
+</div>
+
+<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+<script>
+	let socket;
+
+	const connectBtn = document.getElementById('connectBtn');
+	const sendBtn = document.getElementById('sendBtn');
+	const jwtInput = document.getElementById('jwt');
+	const messagesDiv = document.getElementById('messages');
+	const payloadInput = document.getElementById('payload');
+	const generateJWTBtn = document.getElementById('generateJWT');
+
+	connectBtn.onclick = () => {
+		const jwt = jwtInput.value.trim();
+		if (!jwt) {
+			alert('Please enter a JWT');
+			return;
+		}
+
+		socket = io('http://127.0.0.1:3000', {
+			auth: { token: jwt }
+		});
+
+		socket.on('connect', () => {
+			appendMessage(`✅ Connected as ${socket.id}`);
+		});
+
+		socket.on('connect_error', (err) => {
+			appendMessage(`❌ Connection failed: ${err.message}`);
+		});
+
+		socket.onAny((event, data) => {
+			appendMessage(`📨 ${event}: ${JSON.stringify(data)}`);
+		});
+	};
+
+	sendBtn.onclick = () => {
+		if (!socket || !socket.connected) {
+			alert('Not connected to server!');
+			return;
+		}
+
+		try {
+			const parsed = JSON.parse(payloadInput.value);
+			socket.emit(parsed.event, parsed.data);
+			appendMessage(`📤 Sent: ${JSON.stringify(parsed)}`);
+		} catch (e) {
+			alert('Invalid JSON payload!');
+		}
+	};
+
+	function appendMessage(msg) {
+		const div = document.createElement('div');
+		div.textContent = msg;
+		messagesDiv.appendChild(div);
+		messagesDiv.scrollTop = messagesDiv.scrollHeight;
+	}
+
+	generateJWTBtn.onclick = async () => {
+		const result = await fetch("http://127.0.0.1:3000/dev/generate-jwt", {
+			method: "POST",
+			body: JSON.stringify({
+				id: "11111111111111111111",
+				username: "test.user",
+				avatar: null,
+			}),
+		});
+
+		if (result.ok) {
+			jwtInput.value = await result.text();
+			alert("JWT generated successfully!");
+		} else {
+			alert("Failed to generate JWT: " + await result.text() || result.statusText);
+		}
+	}
+</script>
+</body>
+</html>
