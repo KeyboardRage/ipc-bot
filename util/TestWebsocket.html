@@ -60,6 +60,7 @@
 	<button id="sendBtn">Send</button>
 </div>
 
+<!-- The backend API will expose a socketIO client out-of-the-box. All we need to do is use it -->
 <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
 <script>
 	let socket;
@@ -79,7 +80,8 @@
 			return;
 		}
 
-		console.log("CONNECTING", jwt);
+		console.log("CONNECTING WITH JWT", jwt);
+		/* Connect to the backend API */
 		socket = io('http://127.0.0.1:3000', {
 			auth: { token: jwt }
 		});
@@ -93,6 +95,12 @@
 		});
 
 		socket.onAny((event, data) => {
+			/**
+			 * For now we can keep it simple:
+			 * - ALL are sent through a single catch-all channel (onAny)
+			 * - We distinguish the type of event by the event name.
+			 * - The data it sends is arbitrarily up to us; it can be a string, JSON object, etc. The content of the data is up to us for the given event.
+			 */
 			appendMessage(`📨 ${event}: ${JSON.stringify(data)}`);
 		});
 	};
