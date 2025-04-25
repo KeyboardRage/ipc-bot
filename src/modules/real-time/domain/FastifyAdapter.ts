@@ -4,7 +4,8 @@
 import { FastifyInstance, FastifyPluginAsync } from "fastify";
 import fp from "fastify-plugin";
 import type { ServerOptions } from "socket.io";
-import { Server } from "socket.io";
+import WSServer from "./WSServer.js";
+
 
 export type FastifySocketioOptions = Partial<ServerOptions> & {
     preClose?: (done: Function) => void
@@ -12,13 +13,13 @@ export type FastifySocketioOptions = Partial<ServerOptions> & {
 
 const fastifySocketIO: FastifyPluginAsync<FastifySocketioOptions> = fp(
     async function (fastify, opts: FastifySocketioOptions) {
-        console.log("Registering plugin")
         function defaultPreClose(done: Function) {
             (fastify as any).io.local.disconnectSockets(true)
             done()
         }
-        // TODO Convert to custom WSServer here. Using WSServer is somehow broken.
-        fastify.decorate('io', new Server(fastify.server, opts))
+
+        // @ts-expect-error - It's fine, it's a thin wrapper that just proxies the constructor args
+        fastify.decorate('io', new WSServer(fastify.server, opts))
         fastify.addHook('preClose', (done) => {
             if (opts.preClose) {
                 return opts.preClose(done)

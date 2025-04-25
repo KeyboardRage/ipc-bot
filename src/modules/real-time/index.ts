@@ -47,11 +47,11 @@ export default function() {
                     socket.request.headers.authorization = `Bearer ${socket.handshake.auth.token}`;
 
                     /**
-                     * Then, we can re-use the auth middleware. However usually Fastify just lets you throw
-                     * and they gracefully handle it, but SocketIO does not. If you throw here, it will just
+                     * Then, we can re-use the auth middleware. However, usually Fastify just lets you throw
+                     * and it gracefully handles it, but SocketIO does not. If you throw here, it will just
                      * accept it and continue with the authorization as if it was successful.
                      *
-                     * Instead we have to pass an error into "next" for it to reject.
+                     * Instead, we have to pass an error into "next" for it to reject.
                      */
                     try {
                         // @ts-expect-error - It fulfills the type enough for auth
@@ -61,17 +61,18 @@ export default function() {
                     }
 
                     /**
-                     * Finally, check if we finally have a user object decorated in the request,
-                     * which should have been done by the JWTAuthHandler.
-                     */
-                    if (!socket.request.user) return next(new Error("Unauthorized"));
-
-                    /**
                      * Now we need to store the user on the web socket itself, so that we can access
                      * it whenever the user emits any events, or when we need to get the current
                      * socket's user details.
                      */
+                    // @ts-expect-error - It uses FastifyRequest, which has decorated this
                     socket.user = socket.request.user;
+
+                    /**
+                     * Finally, check if we finally have a user object decorated in the request,
+                     * which should have been done by the JWTAuthHandler.
+                     */
+                    if (!socket.user) return next(new Error("Unauthorized"));
                     next();
                 });
 

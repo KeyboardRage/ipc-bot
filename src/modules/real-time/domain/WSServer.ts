@@ -8,8 +8,12 @@ type TServerInstance = FastifyInstance | HTTPSServer | Http2SecureServer | Http2
 
 export default class WSServer extends Server {
     constructor(srv?: TServerInstance | number, opts?: Partial<ServerOptions>) {
-        // @ts-expect-error - Whatever, I don't care, it is fine
-        super(srv, opts);
+        if (srv && typeof srv !== "number" && "server" in srv) {
+            // Handle FastifyInstance case
+            super(srv.server, opts);
+        } else {
+            super(srv as any, opts);
+        }
     }
 
 
