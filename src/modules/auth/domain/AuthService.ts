@@ -31,8 +31,11 @@ export default class AuthService {
      * Generates a new auth key
      */
     createKey(partialUser: IUserData): string {
-        // TODO Fix expiresIn. Documentation is wrong or there's a bug, it does not work as document, so I removed it
-        return jwt.sign(partialUser, process.env.JWT_TOKEN);
+        return jwt.sign(
+            partialUser,
+            process.env.JWT_TOKEN,
+            { expiresIn: this.ttl }
+        );
     }
 
     /**

@@ -13,7 +13,7 @@ export default function() {
             core.getService("Server").registerRoute((server, opts, done) => {
                 server.post("/dev/generate-jwt", (req) => {
                     // @ts-expect-error - I don't care, this is a test
-                    return core.getService("Auth").createKey(req.body);
+                    return core.getService("Auth").createKey(JSON.parse(req.body));
                 });
 
                 return done();
