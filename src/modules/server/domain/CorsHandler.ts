@@ -8,7 +8,6 @@ export const OriginSetupFn: OriginFunction = (origin, cb) => {
     if (process.env.NODE_ENV === "development") allowedOrigins.push("localhost", "127.0.0.1");
 
     if (!origin || allowedOrigins.some(allowed => origin.includes(allowed))) {
-        console.log("Allowed")
         cb(null, true);
     } else {
         cb(new Error("Not allowed by CORS"), false);
