@@ -12,7 +12,7 @@ start()
             process.exit(0);
         });
         process.on("SIGINT", async (s) => {
-            await core.stop();
+            await core.stop(!!s);
             process.exit(s);
         });
         process.on("unhandledRejection", (reason: AnyOriginalError) => {

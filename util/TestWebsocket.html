@@ -47,7 +47,11 @@
 <div class="column">
 	<h3>Connect & Send Events</h3>
 	<fieldset>
-		<input type="text" id="jwt" placeholder="Enter JWT here"/>
+		<div style="display: flex: gap: 16px;">
+			<input type="text" id="jwt" placeholder="Enter JWT here"/>
+			or
+			<input type="text" id="userId" placeholder="Discord user ID to use for 'Generate a JWT'"
+		</div>
 		<button id="connectBtn">Connect</button>
 		<button id="generateJWT">Generate a JWT for me</button>
 	</fieldset>
@@ -66,6 +70,7 @@
 	const messagesDiv = document.getElementById('messages');
 	const payloadInput = document.getElementById('payload');
 	const generateJWTBtn = document.getElementById('generateJWT');
+	const userIdInput = document.getElementById('userId');
 
 	connectBtn.onclick = () => {
 		const jwt = jwtInput.value.trim();
@@ -118,7 +123,7 @@
 		const result = await fetch("http://127.0.0.1:3000/dev/generate-jwt", {
 			method: "POST",
 			body: JSON.stringify({
-				id: "11111111111111111111",
+				id: userIdInput.value.trim() || "11111111111111111111",
 				username: "test.user",
 				avatar: null,
 			}),

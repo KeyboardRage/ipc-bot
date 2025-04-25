@@ -1,4 +1,4 @@
-import type { Database } from "./modules/database/index.js";
+import type { Database, RealTimeDB, RealTimeQueries } from "./modules/database/index.js";
 import type { AuthService } from "./modules/auth/index.js";
 import type { AppCore } from "./modules/core/index.js";
 import type { BotClient } from "./modules/client/index.js";
@@ -37,6 +37,8 @@ export interface ServiceMap extends UnknownServiceMap {
     "Discord": DiscordService;
     "WebSocket": WSServer;
     "EventBus": EventBus;
+    "RealTimeDB": RealTimeDB;
+    "RealTime": RealTimeQueries;
 }
 
 export type ApplicationCore = AppCore<ServiceMap>;
@@ -46,6 +48,7 @@ export interface IUserData {
     username: string;
     nickname: string;
     globalName: string;
+    avatar: string | null;
 }
 
 export type AnyOriginalError = Error | TypeError | RangeError | ReferenceError | SyntaxError | URIError | EvalError;

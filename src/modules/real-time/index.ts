@@ -78,8 +78,12 @@ export default function() {
                 });
 
             // Some debugging and testing shit
-            core.getService("Server").getInstance().io.on("connection", (socket) => {
-                console.debug("New WebSocket connection");
+            const eventBus = core.getService("EventBus");
+            const io = core.getService("WebSocket");
+
+            io.on("connection", (socket) => {
+                console.log(`[${socket.user.id}] Connected`)
+                eventBus.clientConnected(socket.user.id, socket);
                 socket.emit("init", {
                     hello: `Hey ${socket.user.username}!`
                 });
