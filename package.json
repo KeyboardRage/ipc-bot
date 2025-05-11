@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc --declarationMap false --sourceMap false --declaration false && npx esbuild dist/index.js --bundle --outfile=bin/index.mjs --platform=node --target=esnext --format=esm --banner:js=\"import {createRequire} from 'module';const require=createRequire(import.meta.url);\"",
     "start": "node --env-file=.env bin/index.mjs",
     "clean": "rimraf dist && rimraf bin",
-    "dev:test-socket": "npx http-server -p 3001 ./util"
+    "dev:test-socket": "npx http-server -p 3001 ./util -c-1"
   },
   "engines": {
     "node": ">=23.0.0"

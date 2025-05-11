@@ -46,8 +46,8 @@ export type ApplicationCore = AppCore<ServiceMap>;
 export interface IUserData {
     id: string;
     username: string;
-    nickname: string;
-    globalName: string;
+    nickname: string | null;
+    globalName: string | null;
     avatar: string | null;
 }
 
