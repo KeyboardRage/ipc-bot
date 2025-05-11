@@ -10,6 +10,7 @@ import Server from "./modules/server/index.js";
 import System from "./modules/system/index.js";
 import Interactions from "./modules/interactions/index.js";
 import DevelopmentUtils from "./modules/development/index.js";
+import RealTime from "./modules/real-time/index.js";
 
 export default async function(): Promise<ApplicationCore> {
     const core = new AppCore<ServiceMap>("IPCBot", {
@@ -26,6 +27,7 @@ export default async function(): Promise<ApplicationCore> {
     core.addPlugin(Server());
     core.addPlugin(System());
     core.addPlugin(Interactions());
+    core.addPlugin(RealTime());
 
     if (process.env.NODE_ENV?.trim() === "development") {
         core.addPlugin(DevelopmentUtils());

@@ -1,4 +1,4 @@
-import type { Database } from "./modules/database/index.js";
+import type { Database, RealTimeDB, RealTimeQueries } from "./modules/database/index.js";
 import type { AuthService } from "./modules/auth/index.js";
 import type { AppCore } from "./modules/core/index.js";
 import type { BotClient } from "./modules/client/index.js";
@@ -7,6 +7,7 @@ import type { RestClient } from "./modules/rest/index.js";
 import type { Server } from "./modules/server/index.js";
 import type { GuildService } from "./modules/system/index.js";
 import type { DiscordService } from "./modules/rest/index.js";
+import type { WSServer, EventBus } from "./modules/real-time/index.js";
 
 declare global {
     namespace NodeJS {
@@ -34,6 +35,10 @@ export interface ServiceMap extends UnknownServiceMap {
     "REST": RestClient;
     "Server": Server;
     "Discord": DiscordService;
+    "WebSocket": WSServer;
+    "EventBus": EventBus;
+    "RealTimeDB": RealTimeDB;
+    "RealTime": RealTimeQueries;
 }
 
 export type ApplicationCore = AppCore<ServiceMap>;
@@ -41,8 +46,9 @@ export type ApplicationCore = AppCore<ServiceMap>;
 export interface IUserData {
     id: string;
     username: string;
-    nickname: string;
-    globalName: string;
+    nickname: string | null;
+    globalName: string | null;
+    avatar: string | null;
 }
 
 export type AnyOriginalError = Error | TypeError | RangeError | ReferenceError | SyntaxError | URIError | EvalError;

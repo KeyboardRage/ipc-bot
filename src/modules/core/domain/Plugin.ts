@@ -29,7 +29,7 @@ export interface PluginHooks<T> {
     /**
      * A hook to call after starting up services.
      */
-    postStart(core?: AppCore<T>): void | Promise<void>;
+    postStart(core: AppCore<T>): void | Promise<void>;
 
    /**
      * A hook to call after everything, when the core is ready.

@@ -8,6 +8,7 @@ export default async function(interaction: ChatInputCommandInteraction, core: Ap
         nickname: interaction.member.nickname,
         username: interaction.user.username,
         globalName: interaction.user.globalName || interaction.user.username,
+        avatar: interaction.user.avatarURL() || null
     });
 
     return interaction.reply({

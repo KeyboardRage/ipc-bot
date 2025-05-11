@@ -7,6 +7,7 @@ import type {
 } from "fastify";
 import type { ApplicationCore, IUserData } from "../../types.js";
 import type { JwtPayload } from "jsonwebtoken";
+import type { WSServer } from "../real-time/index.js";
 
 export type RouteFunction<Server> = (http: Server, opts: unknown, done: () => void) => void;
 
@@ -23,6 +24,7 @@ declare module "fastify" {
 
     interface FastifyInstance {
         core: ApplicationCore;
+        io: WSServer;
     }
 
     export interface FastifyReply {
@@ -46,4 +48,4 @@ declare module "fastify" {
  * @throws {Error} If authentication fails.
  * @returns Void if all was okay. During the auth, you could be decorating the request/response with the parsed data (e.g. the decoded JWT)
  */
-export type AuthHandler = (req: HTTPRequest<{ Headers: { ["authorization"]?: string, ["user-agent"]?: string } }>, res: HTTPReply) => Promise<void>;
+export type AuthHandler = (req: HTTPRequest<{ Headers: { ["authorization"]?: string, ["user-agent"]?: string } }>, res?: HTTPReply) => Promise<void>;

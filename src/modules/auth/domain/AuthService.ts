@@ -31,9 +31,11 @@ export default class AuthService {
      * Generates a new auth key
      */
     createKey(partialUser: IUserData): string {
-        return jwt.sign(partialUser, process.env.JWT_TOKEN, {
-            expiresIn: this.ttl,
-        });
+        return jwt.sign(
+            partialUser,
+            process.env.JWT_TOKEN,
+            { expiresIn: this.ttl }
+        );
     }
 
     /**
