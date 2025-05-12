@@ -32,7 +32,7 @@ This module would then register the necessary DB schemas, add event listeners to
 The structure usually uses the data/repo/domain pattern.
 The index file of the module is the plugin that sets everything up.
 
-Sometimes you'd also have `types.ts`, `constants.ts`, and `configs.ts` etc. that are related to the module, but it is global inside the module (*e.g. is used by both data-access and domain, or even other modules*).
+Sometimes you'd also have filesin the root of the moduel folder, like `types.ts`, `constants.ts`, and `configs.ts` etc. that are related to the module, but it is global inside the module (*e.g. is used by both data-access and domain, or even other modules*).
 
 ### Data access
 Inside "data-access" you have your data access repository, DB schema, or for example an API service.
