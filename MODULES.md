@@ -41,7 +41,7 @@ An example could be a repo class for the XP system that uses MongoDB, Redis, and
 
 ### Domain
 Inside the "domain" you have business logic. This is our arbitrary services, like "ShopService", "EconomyService", "FastifyServer", database clients, etc..
-In here you could also have the actual HTTP handlers that are responsible for taking input data (e.g. params and body), dependencies, and produce an output. For example, an exported class that takes message as input and is responsible for converting it to XP using the injected "EconomyService".
+In here you could also have the actual HTTP handlers that are responsible for taking input data (e.g. params and body), dependencies, and produce an output. For example, an exported function that takes message as input and is responsible for converting it to XP using the injected "EconomyService".
 
 ### Entry points
 The "entry-points" is almost like the opposite of "data-access"; data-access is us reaching _out_, while entry-point is things reaching _in_.
