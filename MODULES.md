@@ -6,7 +6,6 @@ The system uses a plugin approach. Each plugin registers itself to the main syst
   - this is basically a dependency injection approach, as opposed to importing singletons
 - a plugin isn't limited to registering one service; it can do 0 or multiple, it is simply an arbitrary entry-point
 - a plugin has multiple lifecycle hooks. You can combine the order plugins are registered with lifecycle hooks to make sure dependency orchestration is correct
-  - the plugin registration and hook system is a glorified global object (App core) that holds Plugins.
   - each Plugin class just hold arbitrary pre-defined functions (lifecycle hooks), all of which are optional to use
 
 ![Example flow diagram](https://i.thevirt.us/05/H2d5g.png)
